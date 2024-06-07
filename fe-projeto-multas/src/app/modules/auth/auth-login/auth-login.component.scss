@@ -1,0 +1,37 @@
+.login-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    mat-card {
+      width: 100%;
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 20px;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    button {
+      width: 100%;
+      min-height: 40px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="register-container">
+  <h2>Cadastrar</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Usuário</mat-label>
+          <input matInput formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Login</button>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>
