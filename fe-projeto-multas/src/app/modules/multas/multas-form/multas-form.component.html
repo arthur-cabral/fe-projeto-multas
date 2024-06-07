@@ -1,0 +1,23 @@
+<div class="multa-form-container">
+  <h2>Enviar Multa</h2>
+  <form [formGroup]="multaForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-form-field appearance="fill">
+        <mat-label>Número do AIT</mat-label>
+        <input matInput formControlName="numeroAit">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Código da Infração</mat-label>
+        <input matInput formControlName="codigoInfracao">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Placa do Veículo</mat-label>
+        <input matInput formControlName="placaVeiculo">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!multaForm.valid">Enviar</button>
+    </mat-card>
+  </form>
+</div>
