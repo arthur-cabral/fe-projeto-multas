@@ -6,16 +6,22 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   { path: 'listar', component: UserListComponent },
+  { path: 'editar/:id', component: UserUpdateComponent },
   { path: '', redirectTo: 'listar', pathMatch: 'full' },
   { path: '**', redirectTo: 'listar' }
 ];
 
 @NgModule({
   declarations: [
-    UserListComponent
+    UserListComponent,
+    UserUpdateComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +30,9 @@ const routes: Routes = [
     MatIconModule,
     MatCardModule,
     MatButtonModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ]
 })
 export class UserModule { }

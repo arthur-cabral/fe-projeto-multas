@@ -21,4 +21,32 @@ export class UserService {
       }
     });
   }
+
+  getUserById(id: string): Observable<UserModel> {
+    return this.httpClient.get<UserModel>(this.url + "/" + id, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+      }
+    });
+  }
+
+  putUser(userId: string, user: UserModel): Observable<UserModel> {
+    user.id = userId;
+    return this.httpClient.put<UserModel>(this.url, user, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+      }
+    });
+  }
+
+  deleteUser(id: string): Observable<UserModel> {
+    return this.httpClient.delete<UserModel>(this.url + "/" + id, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+      }
+    });
+  }
 }

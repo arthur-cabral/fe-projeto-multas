@@ -1,0 +1,16 @@
+<div class="edit-user-container">
+  <h2>Editar Usuário</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do Usuário</mat-label>
+      <input matInput formControlName="userName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Salvar</button>
+  </form>
+</div>

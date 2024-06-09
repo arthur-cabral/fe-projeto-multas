@@ -1,0 +1,29 @@
+.edit-user-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1976d2;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .mat-form-field {
+      width: 100%;
+    }
+
+    button {
+      align-self: center;
+      width: 150px;
+    }
+  }
+}
