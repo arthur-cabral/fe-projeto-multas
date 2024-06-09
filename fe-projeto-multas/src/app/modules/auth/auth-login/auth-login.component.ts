@@ -35,8 +35,6 @@ export class AuthLoginComponent {
     const login: LoginModel = this.loginForm.value;
     this.authService.login(login).subscribe({
       next: (data) => {
-        localStorage.setItem('bearerToken', data.accessToken);
-        localStorage.setItem('expiresIn', data.expiration.toString());
         Swal.fire({
           icon: 'success',
           title: 'Login efetuado com sucesso!',
