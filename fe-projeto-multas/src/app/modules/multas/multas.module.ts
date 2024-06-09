@@ -9,10 +9,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { AuthGuard } from 'src/app/security/auth.guard';
 
 const routes: Routes = [
   { path: 'criar', component: MultasFormComponent },
-  { path: 'listar', component: MultasListComponent },
+  {
+    path: 'listar',
+    component: MultasListComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'User' }
+  },
   { path: '', redirectTo: 'criar', pathMatch: 'full' },
   { path: '**', redirectTo: 'criar' }
 ];

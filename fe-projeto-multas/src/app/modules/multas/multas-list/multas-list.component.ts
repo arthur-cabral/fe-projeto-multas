@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Multa } from '../../../models/multas/multaModel';
 import { MultasService } from 'src/app/services/multas.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-multas-list',
@@ -32,8 +33,48 @@ export class MultasListComponent implements OnInit {
     console.log(`Editar multa com ID: ${id}`);
   }
 
-  onDelete(id: number) {
-    console.log(`Excluir multa com ID: ${id}`);
-    this.dataSource.data = this.dataSource.data.filter(multa => multa.multaId !== id);
+  async onDelete(id: number) {
+    await this.multasService.getMultaById(id).subscribe({
+      next: (multa) => {
+        Swal.fire({
+          title: 'Excluir multa',
+          text: `Deseja realmente excluir a multa de placa ${multa.placaVeiculo}?`,
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sim',
+          cancelButtonText: 'Não'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.deleteMulta(id);
+          }
+        });
+      },
+      error: (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro ao excluir multa',
+          text: error.error,
+          showConfirmButton: true
+        });
+      }
+    });
+  }
+
+  async deleteMulta(id: number) {
+    await this.multasService.deleteMulta(id).subscribe({
+      next: () => {
+        this.getAllMultas();
+      },
+      error: (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro ao excluir multa',
+          text: 'Você não tem permissão para excluir multas',
+          showConfirmButton: true
+        });
+      }
+    });
   }
 }

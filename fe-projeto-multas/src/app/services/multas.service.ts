@@ -17,7 +17,7 @@ export class MultasService {
     return this.httpClient.get<Multa[]>(this.url, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('bearerToken')
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
       }
     });
   }
@@ -26,7 +26,7 @@ export class MultasService {
     return this.httpClient.get<Multa>(this.url + "/" + id, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('bearerToken')
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
       }
     });
   }
@@ -35,6 +35,24 @@ export class MultasService {
     return this.httpClient.post<Multa>(this.url, multa, {
       headers: {
         'Content-Type': 'application/json'
+      }
+    });
+  }
+
+  putMulta(multa: Multa): Observable<Multa> {
+    return this.httpClient.put<Multa>(this.url, multa, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+      }
+    });
+  }
+
+  deleteMulta(id: number): Observable<void> {
+    return this.httpClient.delete<void>(this.url + "/" + id, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
       }
     });
   }
