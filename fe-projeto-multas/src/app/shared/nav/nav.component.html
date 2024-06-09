@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span class="app-title" [routerLink]="['/multas']">Minha Aplicação</span>
+  <div class="content-buttons">
+    <button mat-button [routerLink]="['/multas']">Multas</button>
+    <button mat-button [routerLink]="['/user']">Usuários</button>
+  </div>
+  <span class="spacer"></span>
+  <div *ngIf="!isLoggedIn()" class="auth-buttons">
+    <button mat-button [routerLink]="['/auth/login']">Login</button>
+    <button mat-button [routerLink]="['/auth/register']">Cadastro</button>
+  </div>
+  <div *ngIf="isLoggedIn()" class="auth-buttons">
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
+</mat-toolbar>
