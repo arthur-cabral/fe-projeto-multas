@@ -51,4 +51,8 @@ export class MultasFormComponent {
       }
     });
   }
+
+  listMultas() {
+    window.location.href = '/multas/listar';
+  }
 }

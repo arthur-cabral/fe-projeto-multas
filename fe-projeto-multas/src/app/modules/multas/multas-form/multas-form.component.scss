@@ -25,4 +25,15 @@
     display: block;
     width: 100%;
   }
+
+  .list-multas {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    .btn-list-multas {
+
+      width: 30%;
+    }
+  }
 }
