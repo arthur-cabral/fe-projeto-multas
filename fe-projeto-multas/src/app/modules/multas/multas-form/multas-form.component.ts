@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MultasService } from 'src/app/services/multas.service';
 import Swal from 'sweetalert2';
+import { MultasDetailsComponent } from '../multas-details/multas-details.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-multas-form',
@@ -13,7 +15,8 @@ export class MultasFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private multasService: MultasService
+    private multasService: MultasService,
+    private dialog: MatDialog
   ) {
     this.multaForm = this.fb.group({
       numeroAit: ['', Validators.required],
@@ -41,18 +44,27 @@ export class MultasFormComponent {
         });
       },
       error: (error) => {
-        console.log(error)
-        Swal.fire({
-          icon: 'error',
-          title: 'Erro ao cadastrar multa',
-          text: error.error,
-          showConfirmButton: true
-        });
+        if (error.status === 409) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Multa já cadastrada',
+            showConfirmButton: true
+          }).then(() => {
+            this.openMultaDetails(this.multaForm.value.numeroAit);
+          });
+        }
       }
     });
   }
 
   listMultas() {
     window.location.href = '/multas/listar';
+  }
+
+  openMultaDetails(numeroAit: string): void {
+    this.dialog.open(MultasDetailsComponent, {
+      width: '400px',
+      data: numeroAit
+    });
   }
 }

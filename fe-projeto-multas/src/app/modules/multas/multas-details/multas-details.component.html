@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Detalhes da Multa</h2>
+<mat-dialog-content>
+  <div class="multa-details-container">
+    <p><strong>Multa Id:</strong> {{ multa.multaId }}</p>
+    <p><strong>Número do AIT:</strong> {{ multa.numeroAIT }}</p>
+    <p><strong>Código da Infração:</strong> {{ multa.codigoInfracao }}</p>
+    <p><strong>Data da Infração:</strong> {{ multa.dataHoraInfracao }}</p>
+    <p><strong>Placa do Veículo:</strong> {{ multa.placaVeiculo }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Fechar</button>
+</mat-dialog-actions>

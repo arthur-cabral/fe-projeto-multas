@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AuthGuard } from 'src/app/security/auth.guard';
 import { MultasUpdateComponent } from './multas-update/multas-update.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MultasDetailsComponent } from './multas-details/multas-details.component';
 
 const routes: Routes = [
   {
@@ -44,7 +46,8 @@ const routes: Routes = [
   declarations: [
     MultasListComponent,
     MultasFormComponent,
-    MultasUpdateComponent
+    MultasUpdateComponent,
+    MultasDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +58,8 @@ const routes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ]
 })
 export class MultasModule { }

@@ -23,10 +23,17 @@ export class MultasService {
   }
 
   getMultaById(id: number): Observable<Multa> {
-    return this.httpClient.get<Multa>(this.url + "/" + id, {
+    return this.httpClient.get<Multa>(this.url + "/byId/" + id, {
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+
+  getMultaByAIT(ait: string): Observable<Multa> {
+    return this.httpClient.get<Multa>(this.url + "/byAIT/" + ait, {
+      headers: {
+        'Content-Type': 'application/json'
       }
     });
   }
