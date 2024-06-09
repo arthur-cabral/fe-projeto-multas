@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MultasListComponent } from './multas-list/multas-list.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MultasFormComponent } from './multas-form/multas-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { AuthGuard } from 'src/app/security/auth.guard';
 import { MultasUpdateComponent } from './multas-update/multas-update.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import { AuthGuard } from 'src/app/security/auth.guard';
+import { MultasListComponent } from './multas-list/multas-list.component';
 import { MultasDetailsComponent } from './multas-details/multas-details.component';
+import { MultasFormComponent } from './multas-form/multas-form.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 const routes: Routes = [
   {
@@ -59,7 +63,9 @@ const routes: Routes = [
     MatIconModule,
     MatInputModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MultasModule { }

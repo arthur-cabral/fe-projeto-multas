@@ -23,7 +23,7 @@
     <!-- Data da Infração Column -->
     <ng-container matColumnDef="dataHoraInfracao">
       <th mat-header-cell *matHeaderCellDef> Data da Infração </th>
-      <td mat-cell *matCellDef="let element"> {{element.dataHoraInfracao}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.dataHoraInfracao | date:'dd/MM/yyyy - HH:mm'}} </td>
     </ng-container>
 
     <!-- Placa do Veículo Column -->

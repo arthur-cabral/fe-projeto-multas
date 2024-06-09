@@ -4,7 +4,7 @@
     <p><strong>Multa Id:</strong> {{ multa.multaId }}</p>
     <p><strong>Número do AIT:</strong> {{ multa.numeroAIT }}</p>
     <p><strong>Código da Infração:</strong> {{ multa.codigoInfracao }}</p>
-    <p><strong>Data da Infração:</strong> {{ multa.dataHoraInfracao }}</p>
+    <p><strong>Data da Infração:</strong> {{ multa.dataHoraInfracao | date:'dd/MM/yyyy - HH:mm'}}</p>
     <p><strong>Placa do Veículo:</strong> {{ multa.placaVeiculo }}</p>
   </div>
 </mat-dialog-content>

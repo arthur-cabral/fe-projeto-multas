@@ -20,6 +20,7 @@ export class MultasFormComponent {
   ) {
     this.multaForm = this.fb.group({
       numeroAit: ['', Validators.required],
+      dataHoraInfracao: ['', Validators.required],
       codigoInfracao: ['', Validators.required],
       placaVeiculo: ['', Validators.required]
     });
