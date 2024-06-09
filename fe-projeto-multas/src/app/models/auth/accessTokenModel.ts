@@ -3,5 +3,6 @@ export class AccessTokenModel {
     public accessToken: string,
     public refreshToken: string,
     public expiration: Date,
+    public roles: string[]
   ) { }
 }
