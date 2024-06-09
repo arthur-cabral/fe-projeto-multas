@@ -17,7 +17,7 @@ export class UserService {
     return this.httpClient.get<UserModel[]>(this.url, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('bearerToken')
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
       }
     });
   }
