@@ -3,6 +3,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Multa } from '../../../models/multas/multaModel';
 import { MultasService } from 'src/app/services/multas.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-multas-list',
@@ -14,7 +15,8 @@ export class MultasListComponent implements OnInit {
   dataSource = new MatTableDataSource<Multa>();
 
   constructor(
-    private multasService: MultasService
+    private multasService: MultasService,
+    private router: Router
   ) {
     this.dataSource = new MatTableDataSource<Multa>();
   }
@@ -29,8 +31,8 @@ export class MultasListComponent implements OnInit {
     });
   }
 
-  onEdit(id: number) {
-    console.log(`Editar multa com ID: ${id}`);
+  onEdit(multaId: number): void {
+    this.router.navigate(['/multas/editar', multaId]);
   }
 
   async onDelete(id: number) {

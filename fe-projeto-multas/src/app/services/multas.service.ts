@@ -39,8 +39,8 @@ export class MultasService {
     });
   }
 
-  putMulta(multa: Multa): Observable<Multa> {
-    return this.httpClient.put<Multa>(this.url, multa, {
+  putMulta(multaId: number, multa: Multa): Observable<Multa> {
+    return this.httpClient.put<Multa>(this.url + "/" + multaId, multa, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + localStorage.getItem('accessToken')

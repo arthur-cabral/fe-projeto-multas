@@ -1,0 +1,26 @@
+<div class="edit-multa-container">
+  <h2>Editar Multa</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Número do AIT</mat-label>
+      <input matInput formControlName="numeroAIT" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Código da Infração</mat-label>
+      <input matInput formControlName="codigoInfracao" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data da Infração</mat-label>
+      <input matInput formControlName="dataHoraInfracao" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Placa do Veículo</mat-label>
+      <input matInput formControlName="placaVeiculo" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Salvar</button>
+  </form>
+</div>

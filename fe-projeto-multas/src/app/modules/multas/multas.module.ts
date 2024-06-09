@@ -10,23 +10,41 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AuthGuard } from 'src/app/security/auth.guard';
+import { MultasUpdateComponent } from './multas-update/multas-update.component';
 
 const routes: Routes = [
-  { path: 'criar', component: MultasFormComponent },
+  {
+    path: 'criar',
+    component: MultasFormComponent
+  },
   {
     path: 'listar',
     component: MultasListComponent,
     canActivate: [AuthGuard],
     data: { role: 'User' }
   },
-  { path: '', redirectTo: 'criar', pathMatch: 'full' },
-  { path: '**', redirectTo: 'criar' }
+  {
+    path: 'editar/:id',
+    component: MultasUpdateComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'Admin' }
+  },
+  {
+    path: '',
+    redirectTo: 'criar',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'criar'
+  }
 ];
 
 @NgModule({
   declarations: [
     MultasListComponent,
-    MultasFormComponent
+    MultasFormComponent,
+    MultasUpdateComponent
   ],
   imports: [
     CommonModule,
