@@ -15,8 +15,6 @@ Inicialmente clone o código do repositório
   git clone https://github.com/arthur-cabral/fe-projeto-multas
 ```
 
-Rode o serviço do backend que está disponível no repositório https://github.com/arthur-cabral/be-projeto-multas
-
 Entre no diretório que se encontra o arquivo `package.json` e instale as dependencias
 
 ```bash
@@ -34,3 +32,5 @@ Rode o projeto por meio do comando
 ```
 
 Ele iniciará na porta 4200 e na rota raiz conterá todo o conteúdo do programa.
+
+Rode o serviço do backend que está disponível no repositório https://github.com/arthur-cabral/be-projeto-multas
