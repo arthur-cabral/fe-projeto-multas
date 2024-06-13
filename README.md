@@ -15,9 +15,9 @@ Inicialmente clone o código do repositório
   git clone https://github.com/arthur-cabral/fe-projeto-multas
 ```
 
-Rode o serviço do backend que está disponível no repositório https://github.com/arthur-cabral/fe-projeto-multas
+Rode o serviço do backend que está disponível no repositório https://github.com/arthur-cabral/be-projeto-multas
 
-Entre na pasta `fe-projeto-multas` do projeto e instale as dependencias
+Entre no diretório que se encontra o arquivo `package.json` e instale as dependencias
 
 ```bash
   cd fe-projeto-multas
